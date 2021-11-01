@@ -23,11 +23,14 @@ app.post("myForm", (req, res) => {
   const formattedMovies = movieData.split(',');
   res.render('pages/index', {
     placeholder: formattedMovies,
-  })
+  });
 });
 
 app.get("/myListQueryString", (req, res) => {
   // Add your implementation here
+  res.render('pages/index', {
+    placeholder: [req.query['movie1'], req.query['movie2']],
+  });
 });
 
 app.get("/search/:movieName", (req, res) => {
