@@ -35,6 +35,22 @@ app.get("/myListQueryString", (req, res) => {
 
 app.get("/search/:movieName", (req, res) => {
   // Add your implementation here
+  const movieName = req.params.movieName; 
+  readFile('movieDescriptions.txt', 'utf-8')
+    .then((data) => {
+      for (line of data.split('\n')) 
+        if (movieName == (line.split(':')[0])) { 
+          res.render('pages/searchResult', {
+            movie: movieName,
+            description: line.split(':')[1]
+          })
+        } // render the page with the result 
+      res.render('pages/searchResult', {
+        movie: 'Error',
+        description: 'Movie could not be found.'
+      })
+    }) // render page with movie not found
+    .catch((err) => console.log(err)) // Console log the error 
 });
 
 app.listen(3002, () => {
