@@ -21,7 +21,7 @@ app.get("/", (req, res) => res.render("pages/index",
 
 app.get("/myForm", (req, res) => res.render("pages/myForm"));
 
-app.post("myForm", (req, res) => {
+app.post("/myForm", (req, res) => {
   // Add your implementation here 
   const movieData = req.body['movies'];
   const formattedMovies = movieData.split(',');

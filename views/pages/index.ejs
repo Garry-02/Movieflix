@@ -11,35 +11,32 @@
   <title>Movieflix</title>
 </head>
 
+
 <body>
   <div class="header"><span class="subheader">Hi John,</span><br> <span class="subheader"> Welcome back 🍿</span></div>
   <div class="container">
     <form>
       <fieldset class="todo-list">
         <legend class="todo-list__title">My Movie List</legend>
-        <label class="todo-list__label">
-          <input type="checkbox" name="" id="" />
-          <i class="check"></i>
-          <span>Inception</span>
-        </label>
-        <label class="todo-list__label">
-          <input type="checkbox" name="" id="" />
-          <i class="check"></i>
-          <span>Spiderman</span>
-        </label>
-        <label class="todo-list__label">
-          <input type="checkbox" name="" id="" />
-          <i class="check"></i>
-          <span>The Dark Knight</span>
-        </label>
-        <label class="todo-list__label">
-          <input type="checkbox" name="" id="" />
-          <i class="check"></i>
-          <span>Tenet</span>
-        </label>
+        <% if(!(placeholder==null)) { %>
+          <% placeholder.forEach((value)=>{ %>
+            <% if(!(value=='' )) { %>
+              <label class="todo-list__label">
+                <input type="checkbox" name="" id="" />
+                <i class="check"></i>
+                <span>
+                  <%= value %>
+                </span>
+                <% } %>
+              </label>
+              <% }) %>
+                <% } %>
+
+                  </label>
       </fieldset>
     </form>
   </div>
 </body>
+
 
 </html>
